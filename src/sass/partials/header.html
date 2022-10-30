@@ -1,0 +1,35 @@
+<div class="header">
+  <div class="container">
+    <nav class="header-nav">
+      <a href="./index.html" class="logo" aria-label="logo">
+        <svg class="logo__icon" width="24" height="24">
+          <use href="./images/sprite.svg#icon-film"></use>
+        </svg>
+        <span class="logo_name">Filmoteka</span>
+      </a>
+      <ul class="site-nav">
+        <li class="site-nav__item site-nav__item--active">
+          <a href="./index.html">HOME</a>
+        </li>
+        <li class="site-nav__item">MY LIBRARY</li>
+      </ul>
+    </nav>
+    <div class="box">
+      <form class="search" name="search" id="searh">
+        <input
+          type="text"
+          class="input"
+          name="txt"
+          autofocus="true"
+          placeholder="Search movies..."
+          onmouseout="this.value = ''; this.blur();"
+        />
+        <i class="fas fa-search">
+          <svg class="fa-search__svg" width="20" height="20">
+            <use href="./images/sprite.svg#icon-search"></use>
+          </svg>
+        </i>
+      </form>
+    </div>
+  </div>
+</div>

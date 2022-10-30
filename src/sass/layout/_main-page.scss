@@ -1,0 +1,53 @@
+.movies {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.movies_list__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.movie_card__info {
+  margin-top: 10px;
+}
+
+.movie_card__name {
+  text-transform: uppercase;
+  color: var(--primary_color);
+}
+
+.movie_card_ganre {
+  color: var(--secondary_color);
+}
+
+@media screen and (max-width: 767.9px) {
+}
+
+@media screen and (min-width: 768px) {
+  .movies_list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .movies_list__item {
+    width: calc((100% - 30px) / 2);
+  }
+
+  .movies_list__item:nth-child(odd) {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .movies_list__item {
+    width: calc((100% - 60px) / 3);
+  }
+
+  .movies_list__item {
+    margin-right: 30px;
+  }
+
+  .movies_list__item:nth-child(3n) {
+    margin-right: 0;
+  }
+}

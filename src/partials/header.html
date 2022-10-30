@@ -1,37 +1,35 @@
-<article class="example" id="uk">
-  <h1>HTML-partials</h1>
-
-  <!--
-    ❗️❗️❗️ The path to images from the HTML partial
-    is the same as from the index.html file
-  -->
-  <img src="images/logo.png" alt="" width="320" />
-
-  <p>
-    The
-    <a
-      href="https://github.com/posthtml/posthtml-include"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      posthtml-include
-    </a>
-    plugin allows you to add code from other HTML files (fragments) to HTML page
-    files. Fragments are stored in the <code>src/partials</code> folder. The
-    addition occurs when compiling page files, such as <code>index.html</code>.
-  </p>
-
-  <p>
-    This <code>example.html</code> file is an example of such a snippet, with
-    the markup of a certain part of the main page. This is very convenient for
-    team development on student projects, when several people write in one HTML
-    file at once.
-  </p>
-
-  <p>
-    The syntax for adding a fragment to the main file is:
-    <code> &lt;include src="./partials/filename.html"&gt;&lt;/include&gt;</code>
-  </p>
-
-  <div class="background"></div>
-</article>
+<div class="header">
+  <div class="container">
+    <nav class="header-nav">
+      <a href="./index.html" class="logo" aria-label="logo">
+        <svg class="logo__icon" width="24" height="24">
+          <use href="./images/sprite.svg#icon-film"></use>
+        </svg>
+        <span class="logo_name">Filmoteka</span>
+      </a>
+      <ul class="site-nav">
+        <li class="site-nav__item site-nav__item--active">
+          <a href="./index.html">HOME</a>
+        </li>
+        <li class="site-nav__item">MY LIBRARY</li>
+      </ul>
+    </nav>
+    <div class="box">
+      <form class="search" name="search" id="searh">
+        <input
+          type="text"
+          class="input"
+          name="txt"
+          autofocus="true"
+          placeholder="Search movies..."
+          onmouseout="this.value = ''; this.blur();"
+        />
+        <i class="fas fa-search">
+          <svg class="fa-search__svg" width="20" height="20">
+            <use href="./images/sprite.svg#icon-search"></use>
+          </svg>
+        </i>
+      </form>
+    </div>
+  </div>
+</div>

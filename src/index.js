@@ -1,8 +1,9 @@
-import { fetchTop } from './js/fetch-top-movies';
+import { fetchMovies } from './js/fetch-movies';
 import { renderMarkup } from './js/renderMarkup';
 import { Notify } from './js/notify';
 
 let query = '';
+let page = 1;
 
 const refs = {
   form: document.querySelector('.search'),
@@ -11,13 +12,13 @@ const refs = {
 
 const fetchTopMovies = async () => {
   try {
-    const data = await fetchTop();
-    const fetchData = data.data;
+    const data = await fetchMovies();
+    const fetchData = data.data.results;
 
-    console.log(fetchData);
+    console.log(data);
     Notify.addLoading();
 
-    renderMarkup(fetchData.results, refs.movies_list);
+    renderMarkup(fetchData, refs.movies_list);
     Notify.success(`Hooray! We found ${fetchData.totalResults} images.`);
   } catch (error) {
     console.log(error);
@@ -28,54 +29,6 @@ const fetchTopMovies = async () => {
 
 fetchTopMovies();
 
-// const onEntry = entries => {
-//   entries.forEach(async entry => {
-//     const totalImages = document.querySelectorAll('.photo-card').length;
-//     if (totalImages < perPage) {
-//       return;
-//     }
-//     if (entry.isIntersecting && query !== '') {
-//       try {
-//         if (totalImages >= maxPages) {
-//           if (totalImages > perPage) {
-//             Notify.info(
-//               "We're sorry, but you've reached the end of search results."
-//             );
-//           }
-//           observer.unobserve(refs.sentinel);
-//           return;
-//         }
-//         Notify.addLoading();
-//         const data = await fetchPixabay(query, page, perPage);
-//         const fetchData = data.data;
-
-//         lightbox.destroy();
-//         Notify.removeLoading();
-//         renderMarkup(fetchData.hits, refs.gallery);
-//         lightbox = new SimpleLightbox('.gallery a', {
-//           captionsData: 'alt',
-//           captionDelay: 250,
-//         }).refresh();
-//         incrementPage();
-//       } catch (error) {
-//         console.log(error);
-//         Notify.failure('Something went wrong');
-//       }
-//     }
-//   });
-// };
-
-// function resetPage() {
-//   page = 1;
-// }
-
-// function incrementPage() {
-//   page += 1;
-// }
-
 function clearSearchContent() {
   refs.movies_list.innerHTML = '';
 }
-// const observer = new IntersectionObserver(onEntry, {
-//   rootMargin: '200px',
-// });

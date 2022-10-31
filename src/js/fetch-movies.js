@@ -1,14 +1,14 @@
 import Notiflix from 'notiflix';
 import axios from 'axios';
 
-export { fetchTop };
+export { fetchMovies };
 
 const KEY = '4c2c309e2c0263a8769257d39e3c269a';
 
-async function fetchTop(page) {
+async function fetchMovies(page) {
   try {
     const response = await axios.get(
-      'https://api.themoviedb.org/3/movie/popular?',
+      'https://api.themoviedb.org/3/trending/movie/week?',
       {
         params: {
           api_key: KEY,
